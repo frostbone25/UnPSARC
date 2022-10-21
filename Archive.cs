@@ -88,7 +88,7 @@ namespace UnPSARC
                 else
                 {
         
-                    MEMORY_FILE.WriteBytes(Reader.ReadAtOffset(OFFSET, UncompressedSize));       //File isn't compressed with oodle lza
+                    MEMORY_FILE.WriteBytes(Utilities.ReadAtOffset(Reader, OFFSET, UncompressedSize));       //File isn't compressed with oodle lza
                     if (i == 0)
                     {
                         FileNames = new List<string>(Encoding.UTF8.GetString(StreamToByteArray(MEMORY_FILE)).Split(new[] { "\n", "\0" }, StringSplitOptions.None));

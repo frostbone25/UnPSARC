@@ -135,9 +135,13 @@ namespace UnPSARC
         {
             Console.WriteLine("Unpacking {0}...", Path.GetFileName(inputPath));
 
-            Stream R = File.OpenRead(inputPath);
-            Archive.Unpack(R, outputDirectory);
-            R.Close();
+            //Stream R = File.OpenRead(inputPath);
+            //Archive.Unpack(R, outputDirectory);
+            //R.Close();
+
+            Stream stream = File.OpenRead(inputPath);
+            PlaystationArchive playstationArchive = new PlaystationArchive(stream, outputDirectory);
+            stream.Close();
         }
     }
 }
